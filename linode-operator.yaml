@@ -184,6 +184,7 @@ metadata:
     app.kubernetes.io/name: linodeoperator
     app.kubernetes.io/managed-by: kustomize
   name: leader-election-role
+  namespace: system
 rules:
 - apiGroups:
   - ""
