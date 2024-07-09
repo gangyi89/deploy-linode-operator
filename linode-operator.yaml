@@ -240,7 +240,8 @@ rules:
   - clusterfirewalls/status
   verbs:
   - get
-  ---# permissions for end users to edit clusterfirewalls.
+---
+# permissions for end users to edit clusterfirewalls.
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
