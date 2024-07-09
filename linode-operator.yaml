@@ -333,7 +333,7 @@ spec:
         args:
           - --leader-elect
           - --health-probe-bind-address=:8081
-        image: controller:latest
+        image: gangyi89/linode-firewall-operator:0.1.0
         name: manager
         securityContext:
           allowPrivilegeEscalation: false
