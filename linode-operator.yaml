@@ -92,11 +92,11 @@ metadata:
 rules:
 - apiGroups:
   - ""
-  resources:
-  - events
-  verbs:
-  - create
-  - patch
+  # resources:
+  # - events
+  # verbs:
+  # - create
+  # - patch
   resources:
   - nodes
   verbs:
@@ -121,18 +121,18 @@ rules:
   - get
   - list
   - watch
-- apiGroups:
-  - coordination.k8s.io
-  resources:
-  - leases
-  verbs:
-  - create
-  - delete
-  - get
-  - list
-  - patch
-  - update
-  - watch
+# - apiGroups:
+#   - coordination.k8s.io
+#   resources:
+#   - leases
+#   verbs:
+#   - create
+#   - delete
+#   - get
+#   - list
+#   - patch
+#   - update
+#   - watch
 - apiGroups:
   - firewall.operator.linode.io
   resources:
@@ -224,6 +224,7 @@ metadata:
     app.kubernetes.io/name: linodeoperator
     app.kubernetes.io/managed-by: kustomize
   name: leader-election-rolebinding
+  namespace: system
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
