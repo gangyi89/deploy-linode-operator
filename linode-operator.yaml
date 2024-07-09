@@ -93,6 +93,11 @@ rules:
 - apiGroups:
   - ""
   resources:
+  - events
+  verbs:
+  - create
+  - patch
+  resources:
   - nodes
   verbs:
   - create
