@@ -37,7 +37,7 @@ This repository contains a script to deploy the Linode Firewall Operator to a sp
 
 ## FAQ
 
-### What does this operator do?
+#### What does this operator do?
 
 This operator automatically creates and removes worker node instances from a dedicated Linode Firewall based on the node events emitted by the Kubernetes cluster. When a node creation/removal is emitted, the operator reconciles the current list of nodes against the firewall device list and updates the firewall accordingly.
 
@@ -46,15 +46,15 @@ This operator automatically creates and removes worker node instances from a ded
 
 *Note: Linode automatically removes a node from the firewall list when the node is deleted, hence the operator simply verifies and logs the delete activity.*
 
-### Can I provision the operator as 2 replicas instead of the default single replica instance?
+#### Can I provision the operator as 2 replicas instead of the default single replica instance?
 
 Yes, you can, but it's not necessary. In the event that the node containing the operator is removed, the operator will be rescheduled to another node and perform reconciliation at start-up.
 
-### How do I secure my Linode API Key?
+#### How do I secure my Linode API Key?
 
 The operator is designed to consume the API Key from a Secret object. Hence, you can apply a consistent Kubernetes secrets management strategy to secure the API Key.
 
-### Can it handle LKE cluster autoscale, upgrades, recycle pool, and delete pool?
+#### Can it handle LKE cluster autoscale, upgrades, recycle pool, and delete pool?
 
 Yes! To the operator, the above operations are nothing but create and delete node events. The operator will handle all of these scenarios.
 
