@@ -31,13 +31,13 @@ This repository contains a script to deploy the Linode Firewall Operator to a sp
 
 2. **Deploy firewall object:**
 
-   a. Copy the sample `cluster-firewall.yaml` file
-   b. Populate the Firewall ID and Linode API Key
-   c. Deploy the firewall object to the same namespace:
+   1. Copy the sample `cluster-firewall.yaml` file
+   2. Populate the Firewall ID and Linode API Key
+   3. Deploy the firewall object to the same namespace:
 
-   ```bash
-   kubectl apply -f cluster-firewall.yaml -n <MY_NAMESPACE>
-   ```
+      ```bash
+      kubectl apply -f cluster-firewall.yaml -n <MY_NAMESPACE>
+      ```
 
 ---
 
