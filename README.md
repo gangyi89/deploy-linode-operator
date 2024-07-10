@@ -1,4 +1,4 @@
-# Deploy Linode Operator
+# Deploy Linode Firewall Operator
 
 This repository contains a script to deploy the Linode Operator to a specified Kubernetes namespace.
 
@@ -8,7 +8,7 @@ This repository contains a script to deploy the Linode Operator to a specified K
 
 Specify the desired namespace for operator. Default namespace will be used when not specified.
 ```
-curl -s https://raw.githubusercontent.com/gangyi89/deploy-linode-operator/main/deploy-linode-operator.sh | bash -s -- <MY_NAMESPACE>
+curl -s https://raw.githubusercontent.com/gangyi89/deploy-linode-operator/main/deploy-linode-fw-operator.sh | bash -s -- <MY_NAMESPACE>
 ```
 
 2. Copy sample cluster-firewall.yaml and populate Firewall ID and Linode API Key. 
