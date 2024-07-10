@@ -315,6 +315,8 @@ spec:
         # versions < 1.19 or on vendors versions which do NOT support this field by default (i.e. Openshift < 4.11 ).
         # seccompProfile:
         #   type: RuntimeDefault
+      # troubleshooting deleted pod issue
+      terminationGracePeriodSeconds: 3600 # Delay deletion for 1 hour
       containers:
       - command:
         - /manager
