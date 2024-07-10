@@ -83,7 +83,6 @@ metadata:
     app.kubernetes.io/name: linodeoperator
     app.kubernetes.io/managed-by: kustomize
   name: controller-manager
-  namespace: system
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -116,18 +115,6 @@ rules:
   - get
   - list
   - watch
-# - apiGroups:
-#   - coordination.k8s.io
-#   resources:
-#   - leases
-#   verbs:
-#   - create
-#   - delete
-#   - get
-#   - list
-#   - patch
-#   - update
-#   - watch
 - apiGroups:
   - firewall.operator.linode.io
   resources:
@@ -169,7 +156,6 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: controller-manager
-  namespace: system
 ---
 # permissions to do leader election.
 apiVersion: rbac.authorization.k8s.io/v1
@@ -179,7 +165,6 @@ metadata:
     app.kubernetes.io/name: linodeoperator
     app.kubernetes.io/managed-by: kustomize
   name: leader-election-role
-  namespace: system
 rules:
 - apiGroups:
   - ""
@@ -220,7 +205,6 @@ metadata:
     app.kubernetes.io/name: linodeoperator
     app.kubernetes.io/managed-by: kustomize
   name: leader-election-rolebinding
-  namespace: system
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
@@ -228,7 +212,6 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: controller-manager
-  namespace: system
 ---
 # permissions for end users to view clusterfirewalls.
 apiVersion: rbac.authorization.k8s.io/v1
@@ -282,20 +265,10 @@ rules:
   verbs:
   - get
 ---
-apiVersion: v1
-kind: Namespace
-metadata:
-  labels:
-    control-plane: controller-manager
-    app.kubernetes.io/name: linodeoperator
-    app.kubernetes.io/managed-by: kustomize
-  name: system
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: controller-manager
-  namespace: system
   labels:
     control-plane: controller-manager
     app.kubernetes.io/name: linodeoperator
