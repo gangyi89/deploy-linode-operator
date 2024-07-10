@@ -2,24 +2,30 @@
 
 This repository contains a script to deploy the Linode Firewall Operator to a specified Kubernetes namespace.
 
-## Pre-requisite
+## Prerequisites
 
 1. Linode Kubernetes Cluster
-2. Dedicated Linode Firewall for the cluster - The firewall should only be used for the cluster. Operator will compare the worker nodes against the firewall device list and remove any devices that are not the cluster nodes.
-3. Linode PAT Token - Firewalls "Read/Write" only
+2. Dedicated Linode Firewall for the cluster
+   - The firewall should only be used for the cluster
+   - Operator will compare the worker nodes against the firewall device list and remove any devices that are not cluster nodes
+3. Linode PAT Token with "Firewalls Read/Write" permissions
 
 ## Usage
 
-1. Run the following command to deploy the required CRD and Operator. 
+1. Deploy the required CRD and Operator:
 
-Specify the desired namespace for operator. Default namespace will be used when not specified.
-```
-curl -s https://raw.githubusercontent.com/gangyi89/deploy-linode-operator/main/deploy-linode-fw-operator.sh | bash -s -- <MY_NAMESPACE>
-```
+   ```bash
+   curl -s https://raw.githubusercontent.com/gangyi89/deploy-linode-operator/main/deploy-linode-fw-operator.sh | bash -s -- <MY_NAMESPACE>
+   ```
 
-2. Copy sample cluster-firewall.yaml and populate Firewall ID and Linode API Key. 
+   > Note: Specify the desired namespace for the operator. If not specified, the default namespace will be used.
 
-Deploy firewall object to the same namespace.
-```
-kubectl apply -f cluster-firewall.yaml -n <MY_NAMESPACE>
-```
+2. Deploy the firewall object:
+
+   a. Copy the sample `cluster-firewall.yaml` file
+   b. Populate the Firewall ID and Linode API Key
+   c. Deploy the firewall object to the same namespace:
+
+   ```bash
+   kubectl apply -f cluster-firewall.yaml -n <MY_NAMESPACE>
+   ```
