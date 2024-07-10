@@ -7,8 +7,6 @@ This repository contains a script to deploy the Linode Firewall Operator to a sp
 - [Usage](#usage)
 - [FAQ](#faq)
 
----
-
 ## Prerequisites
 
 1. Linode Kubernetes Cluster
@@ -16,8 +14,6 @@ This repository contains a script to deploy the Linode Firewall Operator to a sp
    - The firewall should only be used for the cluster
    - Operator will compare the worker nodes against the firewall device list and remove any devices that are not cluster nodes
 3. Linode PAT Token with "Firewalls Read/Write" permissions
-
----
 
 ## Usage
 
@@ -38,8 +34,6 @@ This repository contains a script to deploy the Linode Firewall Operator to a sp
       ```bash
       kubectl apply -f cluster-firewall.yaml -n <MY_NAMESPACE>
       ```
-
----
 
 ## FAQ
 
