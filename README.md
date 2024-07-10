@@ -2,6 +2,12 @@
 
 This repository contains a script to deploy the Linode Firewall Operator to a specified Kubernetes namespace.
 
+## Pre-requisite
+
+1. Linode Kubernetes Cluster
+2. Dedicated Linode Firewall for the cluster - The firewall should only be used for the cluster. Operator will compare the worker nodes against the firewall device list and remove any devices that are not the cluster nodes.
+3. Linode PAT Token - Firewalls "Read/Write" only
+
 ## Usage
 
 1. Run the following command to deploy the required CRD and Operator. 
