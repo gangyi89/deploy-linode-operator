@@ -48,6 +48,10 @@ This operator automatically creates and removes worker node instances from a ded
 
 *Note: Linode automatically removes a node from the firewall list when the node is deleted, hence the operator simply verifies and logs the delete activity.*
 
+<p align="center">
+  <img src="https://linode-operator.ap-south-1.linodeobjects.com/architecture.jpg" alt="Linode Firewall Operator Architecture" width="600">
+</p>
+
 #### Can I provision the operator as 2 replicas instead of the default single replica instance?
 
 Yes, you can, but it's not necessary. In the event that the node containing the operator is removed, the operator will be rescheduled to another node and perform reconciliation at start-up.
