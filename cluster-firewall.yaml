@@ -1,0 +1,20 @@
+apiVersion: firewall.operator.linode.io/v1alpha1
+kind: ClusterFirewall
+metadata:
+  labels:
+    app.kubernetes.io/name: linodeoperator
+    app.kubernetes.io/managed-by: kustomize
+  name: clusterfirewall
+spec:
+  firewallId: <MY_FIREWALL_ID>
+  apiKeySecret:
+    name: linode-api-key
+    key: api-key
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: linode-api-key
+type: Opaque
+stringData:
+  api-key: "<MY_API_KEY>"
