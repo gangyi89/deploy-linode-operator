@@ -44,6 +44,9 @@ This operator automatically creates and removes worker node instances from a ded
 - Current design assumes a 1:1 relationship between a Cluster and a Firewall instance.
 - It currently has no awareness of node pools and will treat all nodes the same.
 
+
+_Note: Linode automatically removes a node from the firewall list when the node is deleted, hence the operator simply verifies and log the delete activity._
+
 ### Can I provision the operator as 2 replicas instead of the default single replica instance?
 
 Yes, you can, but it's not necessary. In the event that the node containing the operator is removed, the operator will be rescheduled to another node and perform reconciliation at start-up.
