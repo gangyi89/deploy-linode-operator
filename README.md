@@ -2,6 +2,11 @@
 
 This repository contains a script to deploy the Linode Firewall Operator to a specified Kubernetes namespace.
 
+## Table of Contents
+- [Prerequisites](#prerequisites)
+- [Usage](#usage)
+- [FAQ](#faq)
+
 ---
 
 ## Prerequisites
@@ -16,15 +21,15 @@ This repository contains a script to deploy the Linode Firewall Operator to a sp
 
 ## Usage
 
-1. Deploy required CRD and Operator:
+1. **Deploy required CRD and Operator:**
 
    ```bash
    curl -s https://raw.githubusercontent.com/gangyi89/deploy-linode-operator/main/deploy-linode-fw-operator.sh | bash -s -- <MY_NAMESPACE>
    ```
 
-   > Note: Specify the desired namespace for the operator. If not specified, the default namespace will be used.
+   > **Note:** Specify the desired namespace for the operator. If not specified, the default namespace will be used.
 
-2. Deploy firewall object:
+2. **Deploy firewall object:**
 
    a. Copy the sample `cluster-firewall.yaml` file
    b. Populate the Firewall ID and Linode API Key
@@ -33,6 +38,7 @@ This repository contains a script to deploy the Linode Firewall Operator to a sp
    ```bash
    kubectl apply -f cluster-firewall.yaml -n <MY_NAMESPACE>
    ```
+
 ---
 
 ## FAQ
@@ -44,8 +50,7 @@ This operator automatically creates and removes worker node instances from a ded
 - Current design assumes a 1:1 relationship between a Cluster and a Firewall instance.
 - It currently has no awareness of node pools and will treat all nodes the same.
 
-
-_Note: Linode automatically removes a node from the firewall list when the node is deleted, hence the operator simply verifies and log the delete activity._
+*Note: Linode automatically removes a node from the firewall list when the node is deleted, hence the operator simply verifies and logs the delete activity.*
 
 ### Can I provision the operator as 2 replicas instead of the default single replica instance?
 
