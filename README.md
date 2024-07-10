@@ -1,6 +1,8 @@
 # Deploy Linode Firewall Operator
 
-This repository contains a script to deploy the Linode Firewall Operator to a specified Kubernetes namespace.
+This repository provided an easy way to deploy Linode Firewall Operator into your kubernetes cluster.
+
+This operator listens to your cluster events and dynamically add worker nodes to the designated firewall instance.
 
 ## Table of Contents
 - [Prerequisites](#prerequisites)
