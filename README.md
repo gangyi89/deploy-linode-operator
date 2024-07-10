@@ -1,6 +1,6 @@
 # Deploy Linode Firewall Operator
 
-This repository contains a script to deploy the Linode Operator to a specified Kubernetes namespace.
+This repository contains a script to deploy the Linode Firewall Operator to a specified Kubernetes namespace.
 
 ## Usage
 

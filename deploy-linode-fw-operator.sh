@@ -11,4 +11,5 @@ fi
 # Apply the YAML, replacing the namespace placeholder
 kubectl apply -f <(curl -s https://raw.githubusercontent.com/gangyi89/deploy-linode-operator/main/linode-fw-operator.yaml | sed "s/\${NAMESPACE}/$NAMESPACE/") --namespace $NAMESPACE
 
-echo "Linode FirewallOperator deployed to namespace: $NAMESPACE"
+echo ""
+echo "Linode Firewall Operator deployed to namespace: $NAMESPACE"

@@ -3,7 +3,6 @@ kind: ClusterFirewall
 metadata:
   labels:
     app.kubernetes.io/name: linodeoperator
-    app.kubernetes.io/managed-by: kustomize
   name: clusterfirewall
 spec:
   firewallId: <MY_FIREWALL_ID>
