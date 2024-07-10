@@ -10,15 +10,12 @@ This repository contains a script to deploy the Linode Operator to a specified K
 
 ## Usage
 
-1. Run the following command to deploy the required CRD and Operator
+1. Run the following command to deploy the required CRD and Operator. Specifyl the desired namespace for operator. Ommit blank for default namespace.
 ```
-//specify the desired namespace for operator to be deployed in. 
-// Omitted blank for default namespace
 curl -s https://raw.githubusercontent.com/gangyi89/deploy-linode-operator/main/deploy-linode-operator.sh | bash -s -- <MY_NAMESPACE>
 ```
 
-2. Copy sample cluster-firewall.yaml and populate Firewall ID and Linode API Key
+2. Copy sample cluster-firewall.yaml and populate Firewall ID and Linode API Key. Deploy the firewall to the same namespace
 ```
-//Deploy to the same namespace as the operator
 kubectl apply -f cluster-firewall.yaml -n <MY_NAMESPACE>
 ```
