@@ -1,9 +1,0 @@
-resources:
-- linode-operator.yaml
-
-vars:
-- name: NAMESPACE
-  objref:
-    kind: ServiceAccount
-    name: controller-manager
-    apiVersion: v1

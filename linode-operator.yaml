@@ -82,7 +82,7 @@ metadata:
   labels:
     app.kubernetes.io/name: linodeoperator
     app.kubernetes.io/managed-by: kustomize
-  name: controller-manager
+  name: linode-fw-operator
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -155,7 +155,7 @@ roleRef:
   name: manager-role
 subjects:
 - kind: ServiceAccount
-  name: controller-manager
+  name: linode-fw-operator
   namespace: ${NAMESPACE}
 ---
 # permissions to do leader election.
@@ -212,7 +212,7 @@ roleRef:
   name: leader-election-role
 subjects:
 - kind: ServiceAccount
-  name: controller-manager
+  name: linode-fw-operator
 ---
 # permissions for end users to view clusterfirewalls.
 apiVersion: rbac.authorization.k8s.io/v1
@@ -269,22 +269,22 @@ rules:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: controller-manager
+  name: linode-fw-operator
   labels:
-    control-plane: controller-manager
+    control-plane: linode-fw-operator
     app.kubernetes.io/name: linodeoperator
     app.kubernetes.io/managed-by: kustomize
 spec:
   selector:
     matchLabels:
-      control-plane: controller-manager
+      control-plane: linode-fw-operator
   replicas: 1
   template:
     metadata:
       annotations:
         kubectl.kubernetes.io/default-container: manager
       labels:
-        control-plane: controller-manager
+        control-plane: linode-fw-operator
     spec:
       # TODO(user): Uncomment the following code to configure the nodeAffinity expression
       # according to the platforms which are supported by your solution.
@@ -350,5 +350,5 @@ spec:
           requests:
             cpu: 10m
             memory: 64Mi
-      serviceAccountName: controller-manager
+      serviceAccountName: linode-fw-operator
       terminationGracePeriodSeconds: 10
