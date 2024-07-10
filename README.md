@@ -35,18 +35,23 @@ This repository contains a script to deploy the Linode Firewall Operator to a sp
    ```
 ---
 
-# Q&A:
+## FAQ
 
-1. **What does this operator do?**
-This operator automatically creates and remove worker node instances from a dedicated Linode Firewall based on the node events emmitted by the kubernetes cluster. When a node creation / removal is emmited, the operator reconciles the current list of nodes against the firewall device list and updates the firewall accordingly.
-    - Current design assumes a 1 : 1 relationship between a Cluster and a Firewall instance.
-    - It current has no awareness of node pool, and will treat all nodes as the same.
+### What does this operator do?
 
-2. **Can I provision the operator as 2 replica instead of the default single replica instance**
-Yes you can, but its really not neccessary. In the event if the node containing the operator is removed, the operator will be rescheduled to another node and performs reconciliation at start-up.
+This operator automatically creates and removes worker node instances from a dedicated Linode Firewall based on the node events emitted by the Kubernetes cluster. When a node creation/removal is emitted, the operator reconciles the current list of nodes against the firewall device list and updates the firewall accordingly.
 
-3. **How do I secure my Linode API Key?**
-The operator is designed to consume the API Key from a Secret object. Hence you can apply a consistent kubernetes secrets management strategy to secure the API Key.
+- Current design assumes a 1:1 relationship between a Cluster and a Firewall instance.
+- It currently has no awareness of node pools and will treat all nodes the same.
 
-1. **Can it handle LKE cluster autoscale, upgrades, recycle pool and delete pool?**
-Of course! To the operator, the above operations are nothing but create and delete node events. The operator will handle all of the above.
+### Can I provision the operator as 2 replicas instead of the default single replica instance?
+
+Yes, you can, but it's not necessary. In the event that the node containing the operator is removed, the operator will be rescheduled to another node and perform reconciliation at start-up.
+
+### How do I secure my Linode API Key?
+
+The operator is designed to consume the API Key from a Secret object. Hence, you can apply a consistent Kubernetes secrets management strategy to secure the API Key.
+
+### Can it handle LKE cluster autoscale, upgrades, recycle pool, and delete pool?
+
+Yes! To the operator, the above operations are nothing but create and delete node events. The operator will handle all of these scenarios.
