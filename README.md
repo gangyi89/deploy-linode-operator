@@ -75,3 +75,4 @@ Yes! To the operator, the above operations are nothing but create and delete nod
 
 #### What happens when a node instance is manually removed from the Linode Firewall Device List?
 The node will only be added in when the next reconciliation is triggered. Either due to a node addition or deletion detected by the cluster or after 10hr (default operator reconcile interval).
+Alternatively, specify the interval parameter to specify the frequency of the reconciliation - on top of event triggered reconciliation.
