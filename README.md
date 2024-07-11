@@ -88,8 +88,8 @@ kubectl describe clusterfirewall -n <MY_NAMESPACE>
   <img src="https://linode-operator.ap-south-1.linodeobjects.com/describe.jpg" alt="Cluster Firewall Events" width="800">
 </p>
 
-   1. Verify the status currently contains all the nodes in the cluster (no less and no more). The status is updated everytime reconcilation happens.
-   2. Look for any error messages under the events section. All errors are logged as events and can be used to debug the issue.
+   - Verify the status currently contains all the nodes in the cluster (no less and no more). The status is updated everytime reconcilation happens.
+   - Look for any error messages under the events section. All errors are logged as events and can be used to debug the issue.
 
 2. Check the logs of the operator pod:
 ```
