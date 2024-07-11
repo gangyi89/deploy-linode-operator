@@ -100,3 +100,6 @@ kubectl logs linode-fw-operator-xxxxxxxx-xxxxx -n <MY_NAMESPACE>
 </p>
 
 Reconcilation Started and Reconcilation Completed depics 1 cycle of reconcilation. From there, you will be able to identify what time was the last run reconciliation and also identify any errors that might have occurred.
+
+## Final Thoughts
+If you have read until here, thank you for your patience. I hope this operator will be useful to you.
