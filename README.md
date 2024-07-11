@@ -8,6 +8,8 @@ The operator listens to the cluster events and dynamically add worker nodes to t
 - [Prerequisites](#prerequisites)
 - [Usage](#usage)
 - [FAQ](#faq)
+- [Troubleshooting Guide](#troubleshooting-guide)
+- [Final Thoughts](#final-thoughts)
 
 ## Prerequisites
 
@@ -77,8 +79,8 @@ Yes! To the operator, the above operations are nothing but create and delete nod
 The node will only be added in when the next reconciliation is triggered. Either due to a node add/delete detected by the cluster or after 10hr (default operator reconcile interval).
 Alternatively, specify the interval parameter to control the frequency of the reconciliation - on top of event triggered reconciliation.
 
-#### Can you tell me more on how to troubleshoot the operator?
-Certainly. There are 2 places you will want to look at.
+## Troubleshooting Guide
+This section discribe some of the places that can be looked into to identify issues with the operator.
 
 1. Describe the cluster firewall object and verify the status and events:
 ```
@@ -91,7 +93,7 @@ kubectl describe clusterfirewall -n <MY_NAMESPACE>
    - Verify the status currently contains all the nodes in the cluster (no less and no more). The status is updated everytime reconcilation happens.
    - Look for any error messages under the events section. All errors are logged as events and can be used to debug the issue.
 
-2. Check the logs of the operator pod:
+1. Check the logs of the operator pod:
 ```
 kubectl logs linode-fw-operator-xxxxxxxx-xxxxx -n <MY_NAMESPACE>
 ```
