@@ -6,9 +6,11 @@ metadata:
   name: clusterfirewall
 spec:
   firewallId: <MY_FIREWALL_ID>
+  # interval: 1m
   apiKeySecret:
     name: linode-api-key
     key: api-key
+    # namespace: <SOMEWHERE>
 ---
 apiVersion: v1
 kind: Secret
