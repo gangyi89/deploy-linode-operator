@@ -14,6 +14,7 @@ The operator listens to the cluster events and dynamically add worker nodes to t
 ## Prerequisites
 
 1. Linode Kubernetes Cluster
+   - Have outbound connectivity to https://api.linode.com
 2. Dedicated Linode Firewall for the cluster
    - The firewall should only be used for the cluster
    - Operator will compare the worker nodes against the firewall device list and remove any devices that are not cluster nodes
