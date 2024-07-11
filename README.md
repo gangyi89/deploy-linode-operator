@@ -76,3 +76,27 @@ Yes! To the operator, the above operations are nothing but create and delete nod
 #### What happens when a node instance is manually removed from the Linode Firewall Device List?
 The node will only be added in when the next reconciliation is triggered. Either due to a node add/delete detected by the cluster or after 10hr (default operator reconcile interval).
 Alternatively, specify the interval parameter to control the frequency of the reconciliation - on top of event triggered reconciliation.
+
+#### Can you tell me more on how to monitor or troubleshoot the operator?
+Certainly. There are 2 places you will want to look at.
+
+1. Describe the cluster firewall object and verify the status and events:
+```
+kubectl describe clusterfirewall -n <MY_NAMESPACE>
+```
+<p align="center">
+  <img src="https://linode-operator.ap-south-1.linodeobjects.com/describe.jpg" alt="Cluster Firewall Events" width="800">
+</p>
+
+   1. Verify the status currently contains all the nodes in the cluster (no less and no more). The status is updated everytime reconcilation happens.
+   2. Look for any error messages under the events section. All errors are logged as events and can be used to debug the issue.
+
+2. Check the logs of the operator pod:
+```
+kubectl logs linode-fw-operator-xxxxxxxx-xxxxx -n <MY_NAMESPACE>
+```
+<p align="center">
+  <img src="https://linode-operator.ap-south-1.linodeobjects.com/logs.jpg" alt="Cluster Firewall Events" width="800">
+</p>
+
+Reconcilation Started and Reconcilation Completed depics 1 cycle of reconcilation. From there, you will be able to identify what time was the last run reconciliation and also identify any errors that might have occurred.
