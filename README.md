@@ -77,7 +77,7 @@ Yes! To the operator, the above operations are nothing but create and delete nod
 The node will only be added in when the next reconciliation is triggered. Either due to a node add/delete detected by the cluster or after 10hr (default operator reconcile interval).
 Alternatively, specify the interval parameter to control the frequency of the reconciliation - on top of event triggered reconciliation.
 
-#### Can you tell me more on how to monitor or troubleshoot the operator?
+#### Can you tell me more on how to troubleshoot the operator?
 Certainly. There are 2 places you will want to look at.
 
 1. Describe the cluster firewall object and verify the status and events:
