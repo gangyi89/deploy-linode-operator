@@ -9,7 +9,7 @@ The operator listens to the cluster events and dynamically add worker nodes to t
 - [Usage](#usage)
 - [FAQ](#faq)
 - [Troubleshooting Guide](#troubleshooting-guide)
-- [Final Thoughts](#final-thoughts)
+- [Remarks](#remarks)
 
 ## Prerequisites
 
@@ -103,5 +103,6 @@ kubectl logs linode-fw-operator-xxxxxxxx-xxxxx -n <MY_NAMESPACE>
 
 Reconcilation Started and Reconcilation Completed depics 1 cycle of reconcilation. From there, you will be able to identify what time was the last run reconciliation and also identify any errors that might have occurred.
 
-## Final Thoughts
+## Remarks
+This project is of the work of an individual and is not affiliated with Linode in any way.
 If you have read until here, thank you for your patience. I hope this operator will be useful to you.
