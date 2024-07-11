@@ -17,7 +17,7 @@ The operator listens to the cluster events and dynamically add worker nodes to t
    - Operator will compare the worker nodes against the firewall device list and remove any devices that are not cluster nodes
 3. Linode PAT Token with "Firewalls Read/Write" permissions
 
-## Usage
+## Quick Start
 
 1. **Deploy required CRD and Operator:**
 
@@ -27,7 +27,7 @@ The operator listens to the cluster events and dynamically add worker nodes to t
 
    > **Note:** Specify the desired namespace for the operator. If not specified, the default namespace will be used.
 
-2. **Deploy firewall object:**
+2. **Copy firewall object:**
 
    1. Copy the sample `cluster-firewall.yaml` file
    2. Populate the Firewall ID and Linode API Key
@@ -51,6 +51,15 @@ This operator automatically creates and removes worker node instances from a ded
 <p align="center">
   <img src="https://linode-operator.ap-south-1.linodeobjects.com/architecture.jpg" alt="Linode Firewall Operator Architecture" width="800">
 </p>
+
+#### What are the parameters available in the cluster firewall?
+| Parameter | Type | Mandatory | Description |
+|----------|----------|----------|----------|
+| firewallId | int | Y | Dedicated FirewallId for the cluster |
+| apiKeySecret.name | string | Y | Name of kubernetes Secret |
+| apiKeySecret.key | string | Y | Key of kubernetes Secret |
+| apiKeySecret.namespace | string | N | If namespace is not specifed, it will use the namespace of the operator |
+| interval | string | N | Periodically performs reconciliation on top of node events. formatted in s, m, h, d. Default is 10h |
 
 #### Can I provision the operator as 2 replicas instead of the default single replica instance?
 

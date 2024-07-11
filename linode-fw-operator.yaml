@@ -321,7 +321,7 @@ spec:
         args:
           - --leader-elect
           - --health-probe-bind-address=:8081
-        image: gangyi89/linode-firewall-operator:0.1.0
+        image: gangyi89/linode-firewall-operator:1.0.0
         imagePullPolicy: Always 
         name: manager
         securityContext:
