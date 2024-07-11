@@ -74,5 +74,5 @@ The operator is designed to consume the API Key from a Secret object. Hence, you
 Yes! To the operator, the above operations are nothing but create and delete node events. The operator will handle all of these scenarios.
 
 #### What happens when a node instance is manually removed from the Linode Firewall Device List?
-The node will only be added in when the next reconciliation is triggered. Either due to a node addition or deletion detected by the cluster or after 10hr (default operator reconcile interval).
-Alternatively, specify the interval parameter to specify the frequency of the reconciliation - on top of event triggered reconciliation.
+The node will only be added in when the next reconciliation is triggered. Either due to a node add/delete detected by the cluster or after 10hr (default operator reconcile interval).
+Alternatively, specify the interval parameter to control the frequency of the reconciliation - on top of event triggered reconciliation.
