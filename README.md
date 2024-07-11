@@ -106,4 +106,4 @@ Reconcilation Started and Reconcilation Completed depics 1 cycle of reconcilatio
 
 ## Remarks
 This project is of the work of an individual and is not affiliated with Linode in any way.
-If you have read until here, thank you for your patience. I hope this operator will be useful to you.
+I hope this operator will be useful to you.
