@@ -58,8 +58,8 @@ This operator automatically creates and removes worker node instances from a ded
 | firewallId | int | Y | Dedicated FirewallId for the cluster |
 | apiKeySecret.name | string | Y | Name of kubernetes Secret |
 | apiKeySecret.key | string | Y | Key of kubernetes Secret |
-| apiKeySecret.namespace | string | N | If namespace is not specifed, it will use the namespace of the operator |
-| interval | string | N | Periodically performs reconciliation on top of node events. formatted in s, m, h, d. Default is 10h |
+| apiKeySecret.namespace | string | N | If namespace is not specifed, namespace of the operator will be used |
+| interval | string | N | Periodically performs reconciliation on top of node events. Format is in s, m, h, d. Default is 10h |
 
 #### Can I provision the operator as 2 replicas instead of the default single replica instance?
 
