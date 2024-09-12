@@ -1,8 +1,15 @@
 # Deploy Linode Firewall Operator
 
 This repository provides an easy way to deploy Linode Firewall Operator into a kubernetes cluster.
+The operator contains 2 features:
+1. Cluster Firewall - A dedicated firewall for the cluster. Operator listens to cluster events and dynamically add worker nodes to the designated fireweall instance.
+2. External Firewall - A firewall that is protecting a resource that needs to be accessed by the cluster. Operator listens to cluster events and dynamically add worker nodes to the external firewall instance.
 
-The operator listens to the cluster events and dynamically add worker nodes to the designated firewall instance.
+# Version History
+
+THe following versioning is aligned with the docker [image](https://hub.docker.com/repository/docker/gangyi89/linode-firewall-operator/general) versioning.
+- v1.0.0 - Initial release, contains cluster firewall.
+- v2.0.0 - Add support for external firewall.
 
 ## Table of Contents
 - [Prerequisites](#prerequisites)
