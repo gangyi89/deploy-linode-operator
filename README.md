@@ -68,9 +68,14 @@ THe following versioning is aligned with the docker [image](https://hub.docker.c
 
 This operator automatically creates and removes worker node instances from a dedicated Linode Firewall based on the node events emitted by the Kubernetes cluster. When a node creation/removal is emitted, the operator reconciles the current list of nodes against the firewall device list and updates the firewall accordingly.
 
+** Cluster Firewall **
 - Current design assumes a 1:1 relationship between a Cluster and a Firewall instance.
 - The firewall should only be used for the cluster. Operator will compare the worker nodes against the firewall device list and remove any devices that are not cluster nodes.
 - It currently has no awareness of node pools and will treat all nodes the same.
+
+** External Firewall **
+- Include comments here
+  
 
 *Note: Linode automatically removes a node from the firewall list when the node is deleted, hence the operator simply verifies and logs the delete activity.*
 
@@ -87,6 +92,16 @@ This operator automatically creates and removes worker node instances from a ded
 | apiKeySecret.namespace | string | N | If namespace is not specifed, namespace of the operator will be used |
 | interval | string | N | Periodically performs reconciliation on top of node events. Format is in s, m, h, d. Default is 10h |
 
+#### What are the parameters available in the external firewall?
+| Parameter | Type | Mandatory | Description |
+|----------|----------|----------|----------|
+| firewallId | int | Y | Dedicated FirewallId for the cluster |
+| apiKeySecret.name | string | Y | Name of kubernetes Secret |
+| apiKeySecret.key | string | Y | Key of kubernetes Secret |
+| apiKeySecret.namespace | string | N | If namespace is not specifed, namespace of the operator will be used |
+| interval | string | N | Periodically performs reconciliation on top of node events. Format is in s, m, h, d. Default is 10h |
+
+
 #### Can I provision the operator as 2 replicas instead of the default single replica instance?
 
 Yes, you can, but it's not necessary. In the event that the node containing the operator is removed, the operator will be rescheduled to another node and perform reconciliation at start-up.
@@ -95,7 +110,7 @@ Yes, you can, but it's not necessary. In the event that the node containing the 
 
 The operator is designed to consume the API Key from a Secret object. Hence, you can apply a consistent Kubernetes secrets management strategy to secure the API Key.
 
-#### Can it handle LKE cluster autoscale, upgrades, recycle pool, and delete pool?
+#### Can cluster firewall handle LKE cluster autoscale, upgrades, recycle pool, and delete pool?
 
 Yes! To the operator, the above operations are nothing but create and delete node events. The operator will handle all of these scenarios.
 
