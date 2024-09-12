@@ -68,12 +68,12 @@ THe following versioning is aligned with the docker [image](https://hub.docker.c
 
 This operator automatically creates and removes worker node instances from a dedicated Linode Firewall based on the node events emitted by the Kubernetes cluster. When a node creation/removal is emitted, the operator reconciles the current list of nodes against the firewall device list and updates the firewall accordingly.
 
-** Cluster Firewall **
+**Cluster Firewall**
 - Current design assumes a 1:1 relationship between a Cluster and a Firewall instance.
 - The firewall should only be used for the cluster. Operator will compare the worker nodes against the firewall device list and remove any devices that are not cluster nodes.
 - It currently has no awareness of node pools and will treat all nodes the same.
 
-** External Firewall **
+**External Firewall**
 - Include comments here
   
 
