@@ -1,9 +1,9 @@
 apiVersion: firewall.operator.linode.io/v1alpha1
 kind: ClusterFirewall
 metadata:
+  name: clusterfirewall-sample
   labels:
-    app.kubernetes.io/name: linodeoperator
-  name: clusterfirewall
+    app.kubernetes.io/name: cluster-firewall-operator
 spec:
   firewallId: <MY_FIREWALL_ID>
   # interval: 1m
