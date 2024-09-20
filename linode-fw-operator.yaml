@@ -55,6 +55,8 @@ spec:
                 description: Foo is an example field of ClusterFirewall. Edit clusterfirewall_types.go
                   to remove/update
                 type: integer
+              interval:
+                type: string
             required:
             - apiKeySecret
             - firewallId
