@@ -30,7 +30,7 @@ THe following versioning is aligned with the docker [image](https://hub.docker.c
 1. **Deploy required CRD and Operator:**
 
    ```bash
-   curl -s https://raw.githubusercontent.com/gangyi89/deploy-linode-operator/main/deploy-linode-fw-operator.sh | bash -s -- <MY_NAMESPACE>
+   curl -s https://raw.githubusercontent.com/gangyi89/deploy-linode-operator/main/deploy-linode-network-operator.sh | bash -s -- <MY_NAMESPACE>
    ```
 
    > **Note:** Specify the desired namespace for the operator. If not specified, the default namespace will be used.
