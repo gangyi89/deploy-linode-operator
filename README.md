@@ -79,9 +79,6 @@ This operator automatically creates and removes worker node instances from a ded
 
 *Note: Linode automatically removes a node from the firewall list when the node is deleted, hence the operator simply verifies and logs the delete activity.*
 
-<p align="center">
-  <img src="https://linode-operator.ap-south-1.linodeobjects.com/architecture.jpg" alt="Linode Firewall Operator Architecture" width="800">
-</p>
 
 #### What are the parameters available in the cluster firewall?
 | Parameter | Type | Mandatory | Description |
@@ -125,9 +122,6 @@ This section discribe some of the places that can be looked into to identify iss
 ```
 kubectl describe clusterfirewall -n <MY_NAMESPACE>
 ```
-<p align="center">
-  <img src="https://linode-operator.ap-south-1.linodeobjects.com/describe.jpg" alt="Cluster Firewall Events" width="800">
-</p>
 
    - Verify the status currently contains all the nodes in the cluster (no less and no more). The status is updated everytime reconcilation happens.
    - Look for any error messages under the events section. All errors are logged as events and can be used to debug the issue.
@@ -136,9 +130,6 @@ kubectl describe clusterfirewall -n <MY_NAMESPACE>
 ```
 kubectl logs linode-fw-operator-xxxxxxxx-xxxxx -n <MY_NAMESPACE>
 ```
-<p align="center">
-  <img src="https://linode-operator.ap-south-1.linodeobjects.com/logs.jpg" alt="Cluster Firewall Events" width="800">
-</p>
 
 Reconcilation Started and Reconcilation Completed depics 1 cycle of reconcilation. From there, you will be able to identify what time was the last run reconciliation and also identify any errors that might have occurred.
 
